@@ -1,14 +1,23 @@
-// index.js
-// greeting.js
-export const greeting = "Hello, Odinite!";
+import { mainTitle } from "./home.js";
+import { block } from "./menu.js";
+import { aboutBlock } from "./about.js";
 
-console.log(greeting);
 
-// src/index.js
-import odinImage from "./food.png";
 
-const image = document.createElement("img");
-image.src = odinImage;
-image.classList.add('food-image');
+document.querySelectorAll("button").forEach(x => x.addEventListener("click", (event) => {
+    console.log(event.target.id);
+    document.querySelector("#content").innerHTML = "";
+    if (event.target.id == "home") {
+        document.querySelector("#content").appendChild(mainTitle);
+    }
+    else if (event.target.id == "menu") {
+        document.querySelector("#content").appendChild(block);
+    }
+    else if (event.target.id == "about") {
+        document.querySelector("#content").appendChild(aboutBlock);
+    }
 
-document.querySelector(".img").appendChild(image);
+}));
+
+
+
